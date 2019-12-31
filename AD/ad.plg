@@ -1,0 +1,161 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\MY\µ¥Æ¬»ú\£»³ÌÐò\AD\ad.uvproj
+Project File Date:  05/13/2017
+
+<h2>Output:</h2>
+Build target 'Target 1'
+linking...
+Program Size: data=13.0 xdata=0 code=444
+"ad" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=13.0 xdata=0 code=444
+"ad" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=13.0 xdata=0 code=444
+creating hex file from "ad"...
+"ad" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+compiling ad.c...
+AD.C(30): error C202: 'uint': undefined identifier
+AD.C(30): error C141: syntax error near 'temp'
+AD.C(33): error C202: 'count': undefined identifier
+AD.C(35): error C202: 'count': undefined identifier
+AD.C(36): error C202: 'temp': undefined identifier
+AD.C(38): error C202: 'count': undefined identifier
+AD.C(41): error C202: 'temp': undefined identifier
+AD.C(42): error C202: 'temp': undefined identifier
+AD.C(43): error C202: 'temp': undefined identifier
+AD.C(113): error C202: 'LSA': undefined identifier
+AD.C(113): error C202: 'LSB': undefined identifier
+AD.C(113): error C202: 'LSC': undefined identifier
+AD.C(115): error C202: 'LSA': undefined identifier
+AD.C(115): error C202: 'LSB': undefined identifier
+AD.C(115): error C202: 'LSC': undefined identifier
+AD.C(117): error C202: 'LSA': undefined identifier
+AD.C(117): error C202: 'LSB': undefined identifier
+AD.C(117): error C202: 'LSC': undefined identifier
+AD.C(119): error C202: 'LSA': undefined identifier
+AD.C(119): error C202: 'LSB': undefined identifier
+AD.C(119): error C202: 'LSC': undefined identifier
+AD.C(121): error C202: 'LSA': undefined identifier
+AD.C(121): error C202: 'LSB': undefined identifier
+AD.C(121): error C202: 'LSC': undefined identifier
+AD.C(123): error C202: 'LSA': undefined identifier
+AD.C(123): error C202: 'LSB': undefined identifier
+AD.C(123): error C202: 'LSC': undefined identifier
+AD.C(125): error C202: 'LSA': undefined identifier
+AD.C(125): error C202: 'LSB': undefined identifier
+AD.C(125): error C202: 'LSC': undefined identifier
+AD.C(127): error C202: 'LSA': undefined identifier
+AD.C(127): error C202: 'LSB': undefined identifier
+AD.C(127): error C202: 'LSC': undefined identifier
+AD.C(129): error C202: 'GPIO_DIG': undefined identifier
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(30): error C202: 'uint': undefined identifier
+AD.C(30): error C141: syntax error near 'temp'
+AD.C(33): error C202: 'count': undefined identifier
+AD.C(35): error C202: 'count': undefined identifier
+AD.C(36): error C202: 'temp': undefined identifier
+AD.C(38): error C202: 'count': undefined identifier
+AD.C(41): error C202: 'temp': undefined identifier
+AD.C(42): error C202: 'temp': undefined identifier
+AD.C(43): error C202: 'temp': undefined identifier
+AD.C(129): error C202: 'GPIO_DIG': undefined identifier
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(36): warning C206: 'Read_AD_Data': missing function-prototype
+AD.C(36): error C267: 'Read_AD_Data': requires ANSI-style prototype
+AD.C(41): error C202: 'DIG_CODE': undefined identifier
+AD.C(42): error C202: 'DIG_CODE': undefined identifier
+AD.C(43): error C202: 'DIG_CODE': undefined identifier
+AD.C(129): error C202: 'GPIO_DIG': undefined identifier
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(36): warning C206: 'Read_AD_Data': missing function-prototype
+AD.C(36): error C267: 'Read_AD_Data': requires ANSI-style prototype
+AD.C(129): error C202: 'GPIO_DIG': undefined identifier
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(129): error C202: 'GPIO_DIG': undefined identifier
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(132): error C202: 'GPIO_DIG': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling ad.c...
+AD.C(104): warning C280: 'num': unreferenced local variable
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT?AD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DISPLAY?AD
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+    ADDRESS: 0093H
+Program Size: data=23.0 xdata=0 code=515
+creating hex file from "ad"...
+"ad" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+compiling ad.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?INIT?AD
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAY?AD
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+    ADDRESS: 0093H
+Program Size: data=21.0 xdata=0 code=511
+creating hex file from "ad"...
+"ad" - 0 Error(s), 4 Warning(s).
+Build target 'Target 1'
+compiling ad.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?DISPLAY?AD
+*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
+    SYMBOL:  DIGDISPLAY
+    MODULE:  ad.obj (AD)
+    ADDRESS: 0096H
+Program Size: data=21.0 xdata=0 code=514
+creating hex file from "ad"...
+"ad" - 0 Error(s), 3 Warning(s).
+Build target 'Target 1'
+compiling ad.c...
+linking...
+Program Size: data=21.0 xdata=0 code=514
+creating hex file from "ad"...
+"ad" - 0 Error(s), 0 Warning(s).
+Build target 'Target 1'
+linking...
+Program Size: data=21.0 xdata=0 code=514
+creating hex file from "ad"...
+"ad" - 0 Error(s), 0 Warning(s).

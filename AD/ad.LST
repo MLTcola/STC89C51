@@ -1,0 +1,168 @@
+C51 COMPILER V9.01   AD                                                                    05/15/2017 09:08:56 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE AD
+OBJECT MODULE PLACED IN ad.OBJ
+COMPILER INVOKED BY: D:\keil4\C51\BIN\C51.EXE ad.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2           
+   3          sbit clk = P1^0;
+   4          sbit cs = P1^1;
+   5          sbit LSA=P1^4;
+   6          sbit LSB=P1^5;
+   7          sbit LSC=P1^6;
+   8          sbit din=P1^2;
+   9          sbit dout=P1^3;
+  10          
+  11          unsigned char code table[]={
+  12          0x3f,0x06,0x5b,0x4f,
+  13          0x66,0x6d,0x7d,0x07,
+  14          0x7f,0x6f
+  15          };
+  16          
+  17          unsigned char DisplayData[8];
+  18          
+  19          void delay(int c);
+  20          void write_cmd(unsigned char cmd);
+  21          unsigned int read_dat();
+  22          void init();
+  23          unsigned int  read_ad_data(unsigned char cmd);
+  24          void DigDisplay(void);
+  25          
+  26          
+  27          void main()
+  28          {
+  29   1              unsigned int temp,count;
+  30   1              init();
+  31   1              while(1)
+  32   1              {
+  33   2                if(count==50)
+  34   2                {
+  35   3                      count=0; 
+  36   3                      temp = read_ad_data(0x94);              //   AIN0 电位器                通道地址        001
+  37   3                }
+  38   2                count++;
+  39   2                
+  40   2      
+  41   2                DisplayData[4]=table[temp%10000/1000];
+  42   2                DisplayData[5]=table[temp%1000/100];
+  43   2                DisplayData[6]=table[temp%100/10];
+  44   2                DigDisplay();
+  45   2              }
+  46   1      }
+  47          
+  48          void write_cmd(unsigned char cmd)
+  49          {
+  50   1              unsigned char i;
+  51   1              clk=0;
+  52   1              for(i=0;i<8;i++)
+  53   1              {
+  54   2                      din=cmd>>7;
+  55   2                      cmd=cmd<<1;
+C51 COMPILER V9.01   AD                                                                    05/15/2017 09:08:56 PAGE 2   
+
+  56   2                      clk=0;
+  57   2                      clk=1;
+  58   2              }
+  59   1      }
+  60          
+  61          unsigned int read_dat()
+  62          {
+  63   1              unsigned char i;
+  64   1              unsigned int dat=0;
+  65   1              clk=0;
+  66   1              for(i=0;i<12;i++)
+  67   1              {
+  68   2                      dat=dat<<1;
+  69   2      
+  70   2                      clk=1;
+  71   2                      clk=0;
+  72   2      
+  73   2                      dat=dat|dout;
+  74   2              }
+  75   1              return dat;
+  76   1      }
+  77          
+  78          void init()
+  79          {
+  80   1              clk=0;//        CLK = 0;
+  81   1              cs=1;//CS  = 1;
+  82   1              din=1;//DIN = 1;
+  83   1              clk=1;//CLK = 1;
+  84   1              cs=0;// CS  = 0;
+  85   1      }
+  86          
+  87          unsigned int read_ad_data(unsigned char cmd)
+  88          {
+  89   1              unsigned char i;
+  90   1              unsigned int value;
+  91   1              clk=0;
+  92   1              cs=0;
+  93   1              write_cmd(cmd);
+  94   1              for(i=6;i>0;i--);
+  95   1              clk=1;
+  96   1              delay(20);
+  97   1              clk=0;
+  98   1              delay(20);
+  99   1              value=read_dat();
+ 100   1              cs=1;
+ 101   1              return value;
+ 102   1      }
+ 103          
+ 104          void DigDisplay(void)
+ 105          {
+ 106   1                      unsigned char i;
+ 107   1              unsigned int j;
+ 108   1              for(i=0;i<8;i++)
+ 109   1              {
+ 110   2                      switch(i)        //位选，选择点亮的数码管，
+ 111   2                      {
+ 112   3                              case(0):
+ 113   3                                      LSA=0;LSB=0;LSC=0; break;//显示第0位
+ 114   3                              case(1):
+ 115   3                                      LSA=1;LSB=0;LSC=0; break;//显示第1位
+ 116   3                              case(2):
+ 117   3                                      LSA=0;LSB=1;LSC=0; break;//显示第2位
+C51 COMPILER V9.01   AD                                                                    05/15/2017 09:08:56 PAGE 3   
+
+ 118   3                              case(3):
+ 119   3                                      LSA=1;LSB=1;LSC=0; break;//显示第3位
+ 120   3                              case(4):
+ 121   3                                      LSA=0;LSB=0;LSC=1; break;//显示第4位
+ 122   3                              case(5):
+ 123   3                                      LSA=1;LSB=0;LSC=1; break;//显示第5位
+ 124   3                              case(6):
+ 125   3                                      LSA=0;LSB=1;LSC=1; break;//显示第6位
+ 126   3                              case(7):
+ 127   3                                      LSA=1;LSB=1;LSC=1; break;//显示第7位    
+ 128   3                      }
+ 129   2                      P0=DisplayData[i];//发送段码
+ 130   2                      j=50;                                            //扫描间隔时间设定
+ 131   2                      while(j--);     
+ 132   2                      P0=0x00;//消隐
+ 133   2              }
+ 134   1      }
+ 135          
+ 136          void delay(int c)
+ 137          {
+ 138   1              int a,b;
+ 139   1              for(a=c;a>0;a--)
+ 140   1                      for(b=110;b>0;b--);
+ 141   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    404    ----
+   CONSTANT SIZE    =     10    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
